@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css?family=Numans");
+.overall {
+  background-image: url(./images/image1.jpg);
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container {
+  height: 100%;
+  align-content: center;
+}
+
+.card {
+  height: 370px;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 400px;
+  border-radius: 25px !important;
+  background-color: rgba(255, 255, 255, 0.493) !important;
+}
+
+.social_icon span {
+  font-size: 60px;
+  margin-left: 10px;
+  color: #0468c5;
+}
+
+.social_icon span:hover {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.card-header h3 {
+  color: rgb(0, 0, 0);
+  font-size: 40px;
+}
+
+.social_icon {
+  position: absolute;
+  right: 20px;
+  top: -45px;
+}
+
+.input-group-prepend span {
+  width: 50px;
+  background-color: #0468c5;
+  color: rgb(255, 255, 255);
+  border: 0 !important;
+}
+
+input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+  color: rgb(0, 0, 0);
+}
+
+.remember input {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.login_btn {
+  width: 100px;
+  margin-left: 250px;
+  margin-top: 30px;
+  background-color: #0468c5;
+}
+
+.login_btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.links {
+  color: rgb(0, 0, 0);
+}
+
+.links a {
+  margin-left: 4px;
+}
+
+.form {
+  padding: 10%;
+}
+
+.num {
+  width: 50px;
+  initial-value: 0;
+}
+
+.team {
+  padding: 30px;
+  display: inline-flex;
+  flex: 1;
+}
+
+.submit_btn {
+  width: 100px;
+  margin-left: 250px;
+  margin-top: 30px;
+  background-color: #0468c5;
+}
+
+.submit_btn:hover {
+  color: black;
+  background-color: white;
+}

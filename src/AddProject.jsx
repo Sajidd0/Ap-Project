@@ -1,5 +1,5 @@
 import React from "react";
-import "./AddProject.css";
+import "./MasterStyles.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 const handleChange = (event) => {};
@@ -10,7 +10,7 @@ const AddProject = () => {
   return (
     <>
       <div className="overall">
-        <div className="container">
+        <div className="container justify-content-center">
           <h1>Add a Project</h1>
           <h2>Enter Project Details</h2>
           <div className="form">
@@ -37,6 +37,9 @@ const AddProject = () => {
                   <label>Human Resource:</label>
                   <input className="num" type="number" />
                 </div>
+                <p></p>
+                <label htmlFor="">Add Files:</label>
+                <input type="file" name="" id="" />
                 <p></p>
                 <label>Set Deadline: </label>
                 <input type="date" />

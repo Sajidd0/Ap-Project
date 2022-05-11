@@ -1,6 +1,6 @@
 import React from "react";
 
-import './Signin.css';
+import './MasterStyles.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import {AiFillFacebook,AiFillGooglePlusSquare,AiFillTwitterSquare} from "react-icons/ai";
