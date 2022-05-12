@@ -10,6 +10,7 @@ const App = () => {
   return (
     <>
       <AddProject />
+      <Signin />
       <Routes>
         <Route exact path="/addproject" element={<AddProject />} />
         <Route exact path="/signin" element={<Signin />} />
