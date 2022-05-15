@@ -22,7 +22,7 @@ const AddProject = () => {
             <p></p>
             <form>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Project Name</label>
+                <label class="col-sm-2 col-form-label">Project Name:</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" />
                 </div>
@@ -31,7 +31,7 @@ const AddProject = () => {
               <p></p>
 
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Project Type</label>
+                <label class="col-sm-2 col-form-label">Project Type:</label>
                 <div class="col-sm-4">
                   <button
                     class="colour btn btn-secondary dropdown-toggle"
@@ -83,14 +83,14 @@ const AddProject = () => {
               </div>
               <p></p>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Add Project Files</label>
+                <label class="col-sm-2 col-form-label">Add Project Files:</label>
                 <div class="col-sm-4">
                   <input type="file" class="form-control" />
                 </div>
               </div>
               <p></p>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Set Deadline</label>
+                <label class="col-sm-2 col-form-label">Set Deadline:</label>
                 <div class="col-sm-4">
                   <input type="date" class="col-sm-2 form-control" />
                 </div>
