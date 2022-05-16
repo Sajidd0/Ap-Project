@@ -5,16 +5,23 @@ import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import Signin from "./Signin.jsx";
 import Signup from "./Signup.jsx";
 import AddProject from "./AddProject.jsx";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
+import Navbar from "./Navbar.jsx";
+import CommonFront from "./CommonFront.jsx";
+import Manager from "./Manager";
+import Employee from "./Employee";
+import Home from "./Home";
+import ProjectPage from "./ProjectPage";
+import TaskPage from "./TaskPage";
 const App = () => {
   return (
     <>
-      <AddProject />
-      <Routes>
-        <Route exact path="/addproject" element={<AddProject />} />
-        <Route exact path="/signin" element={<Signin />} />
-        <Route exact path="/signup" element={<Signup />} />
-      </Routes>
+      <BrowserRouter>
+      <Route  path="/commonfront" element={<CommonFront />} />
+        <Route  path="/addproject" element={<AddProject />} />
+        <Route  path="/signin" element={<Signin />} />
+        <Route  path="/signup" element={<Signup />} />
+      </BrowserRouter>
     </>
   );
 };

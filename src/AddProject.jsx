@@ -1,6 +1,7 @@
 import React from "react";
 import "./MasterStyles.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import Navbar from "./Navbar";
 
 const handleChange = (event) => {};
 
@@ -9,6 +10,9 @@ const handleSubmit = (event) => {};
 const AddProject = () => {
   return (
     <>
+    <div>
+      <Navbar/>
+    </div>
       <div className="overall">
         <div className="container justify-content-center">
           <h1>Add a Project</h1>

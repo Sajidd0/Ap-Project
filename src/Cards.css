@@ -1,6 +1,6 @@
-.overall{
-    background-image: url(./images/image1.jpg);
-    height:100vh;
-    background-size: cover;
-    background-repeat: no-repeat;
+.card{
+    
+    width: 18rem;
+    margin-top: 1cm;
+    height: auto;
 }
