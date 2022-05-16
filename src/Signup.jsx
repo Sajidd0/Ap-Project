@@ -6,7 +6,7 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import {AiFillFacebook,AiFillGooglePlusSquare,AiFillTwitterSquare,AiFillHome} from "react-icons/ai";
 import {MdEmail} from "react-icons/md"
 import {FaUser,FaKey,FaPhoneAlt} from "react-icons/fa"
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Signup = () => {
     return(
         <>
@@ -75,7 +75,7 @@ const Signup = () => {
 			</div>
 			<div className="card-footer">
 				<div className="d-flex justify-content-center links">
-					have an account?<NavLink end to="/signin">Sign In</NavLink>
+					have an account?<Link  to="/signin">Sign In</Link>
 				</div>
 			</div>
 		</div>

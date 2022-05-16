@@ -10,7 +10,7 @@ import "./MasterStyles.css"
 const Manager = () => {
     return (
         <div className="overall2">
-            <CommonFront data1={data} title="Welcome Project Manager"/>
+            <CommonFront data1={data} title="Welcome Project Manager" link="/projectpage"/>
         </div>
         
 

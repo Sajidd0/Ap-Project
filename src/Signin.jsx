@@ -5,15 +5,16 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import {AiFillFacebook,AiFillGooglePlusSquare,AiFillTwitterSquare} from "react-icons/ai";
 import {FaUser,FaKey} from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Signin = () => {
     return(
         <>
-        <div className="overall">
-      <div className="container justify-content-center">
-	<div className="d-flex justify-content-center h-100">
+        <div className="overall ">
+			<div className="container">
+	<div className="d-flex justify-content-center">
+		
 		<div className="card">
-			<div className="card-header justify-content-center">
+			<div className="card-header">
                 <h3>Sign In</h3>
 				
 				<div className="d-flex justify-content-end social_icon">
@@ -41,13 +42,13 @@ const Signin = () => {
 						<input type="checkbox"/>Remember Me
 					</div>
 					<div className="form-group">
-						<input type="submit" value="Login" className="btn btn-primary login_btn"/>
+						<Link to ="/employee"><input type="submit" value="Login" className="btn btn-primary login_btn"/></Link>
 					</div>
 				</form>
 			</div>
 			<div className="card-footer">
 				<div className="d-flex justify-content-center links">
-					Don't have an account?<NavLink end to="/signup">Sign Up</NavLink>
+					Don't have an account?<Link  to="/signup">Sign Up</Link>
 				</div>
 				<div className="d-flex justify-content-center">
 					<a href="#">Forgot your password?</a>

@@ -6,7 +6,9 @@ import Navbar from "./Navbar.jsx";
 import Cards from "./Cards.jsx"
 import data from "./data.jsx"
 import {web} from "../src/images/image1.jpg"
-import { NavLink } from "react-router-dom";
+import {Link } from "react-router-dom";
+import "./MasterStyles.css"
+import {GoPlus} from "react-icons/go"
 const CommonFront = (props) => {
     return (
       <>
@@ -33,7 +35,7 @@ const CommonFront = (props) => {
                       {/* <Cards imgsrc="../src/images/image1.jpg" title="wow"/> */}
                       {
                           props.data1.map((val,ind)=>  {
-                              return <Cards key={ind} imgsrc={val.imgsrc} title={val.title}/>
+                              return <Cards key={ind} imgsrc={val.imgsrc} title={val.title} link={props.link}/>
 
                           })
                       }
@@ -43,7 +45,9 @@ const CommonFront = (props) => {
           </div>
       </div>
       
-     
+      <Link to="/addproject" class="float">
+    <i ><GoPlus className="mt-3"/></i>
+    </Link>
       </>
     );
 };

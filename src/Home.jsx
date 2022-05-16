@@ -3,7 +3,7 @@ import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "./MasterStyles.css";
-
+import {Link} from "react-router-dom"
 
 const Home = () => {
     
@@ -49,7 +49,7 @@ const Home = () => {
             <div className="row ">
                 <div className="col-12">
                 <div class="text-box">
-                    <a href="#" class="btn btn-white btn-animate">Get Started</a>
+                    <Link to="/signin" class="btn btn-white btn-animate">Get Started</Link>
                     </div>
                 </div>
             </div>
