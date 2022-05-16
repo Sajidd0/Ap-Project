@@ -107,14 +107,16 @@ input:focus {
 }
 
 .num {
-  width: 50px;
+  margin-left: 10px;
+  margin-right: 25px;
+  width: 70px;
   initial-value: 0;
 }
 
 .team {
-  padding: 30px;
   display: inline-flex;
   flex: 1;
+  margin: 0px;
 }
 
 .submit_btn {
@@ -207,3 +209,22 @@ input:focus {
   
   100% {transform: translateY(0px);opacity:1}
 }
+.centred {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.righted {
+  margin-left: 37%;
+  width: 200px;
+}
+
+.colour {
+  background-color: #0468c5;
+}
+
+.colour:hover {
+  color: black;
+  background-color: white;
+}
+
