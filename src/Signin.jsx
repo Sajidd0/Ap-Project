@@ -12,12 +12,20 @@ import { FaUser, FaKey } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Signin = () => {
-  const [username, setUsr] = useState("Username");
-  const [password, setPass] = useState("Password");
+  const [email, setUsr] = useState("Username");
+  const [pass, setPass] = useState("Password");
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const logins = { username, password };
+    const logins = { email, pass };
+    console.log(logins);
+    fetch("http://localhost:/8080", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(logins),
+    }).then(() => {
+      console.log("Sign-In Successfull");
+    });
   };
 
   return (
@@ -90,6 +98,7 @@ const Signin = () => {
                       type="submit"
                       value="Login"
                       className="btn btn-primary login_btn"
+                      onClick={handleSubmit}
                     />
                   </div>
                 </form>

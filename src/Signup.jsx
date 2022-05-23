@@ -22,7 +22,16 @@ const Signup = () => {
   const [email, setEmail] = useState("Email");
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const Project = { username, password, cpass, address, telno, email };
+    console.log(Project);
+    fetch("http://localhost:/8080", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Project),
+    }).then(() => {
+      console.log("Sign-Up Successfull");
+    });
   };
 
   return (
