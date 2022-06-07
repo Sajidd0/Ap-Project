@@ -3,62 +3,54 @@ import { useState,useEffect  } from "react";
 import "./MasterStyles.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import Home from "./Home.jsx"
 import {
   AiFillFacebook,
   AiFillGooglePlusSquare,
   AiFillTwitterSquare,
 } from "react-icons/ai";
 import { FaUser, FaKey } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate}from "react-router-dom";
 
-const Signin = () => {
+function Signin() {
   const [email, setUsr] = useState("username");
   const [pass, setPass] = useState("password");
+  const navigate = useNavigate();
 
- /* const handleSubmit = (event) => {
-    event.preventDefault();
-    
-    console.log("Hello world login here");
-    
-    
-  };*/
-/*  useEffect(() => {
-    fetch(`http://localhost:8080/User/userList`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
-        }
-        return response.json();
-      })
-      .then((actualData) => console.log(actualData))
-      .catch((err) => {
-        console.log(err.message);
-      });
-  }, []);
-*/
 const handleSubmit = (event) => {
-const SignIn = { email, pass };
-console.log(SignIn);
+var data1;
+const obj = { email, pass };
+//console.log(SignIn);
+const signin1 ={
+  email:'faiqijaz43@gmail.com',
+  pass:'8080'
+}
 fetch("http://localhost:8080/User/checkforlogin", {
-        method: 'POST',
+        method: 'post',
         headers: new Headers({
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
         }),
-        body: JSON.stringify(Signin)
+        body: JSON.stringify(obj)
         })
-        .then(response => response.json())
-       /* .then(data => {
-             let updatedComments = comments;
-             updatedComments.push(data)
-             setComments([...comments], updatedComments);
+         .then(response => response.json())
+        .then(data => {
+          data1= data
+          //alert(data1)
+          if(data1==0)
+          {
+            alert("User Not found")
+          }
+          else
+          {
+            navigate('/employee', { state: email })
+          }
+        })
+	.catch(error => {
+            alert('Something went wrong, please try again later.');
+        });
+       
         
-             setLoading(false);
-             setError(null);
-        })*/
-        ;
       }
     
   
@@ -132,7 +124,7 @@ fetch("http://localhost:8080/User/checkforlogin", {
                       type="submit"
                       value="Login"
                       className="btn btn-primary login_btn"
-                      onClick={useEffect}
+             
                     />
                   </div>
                 </form>

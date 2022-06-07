@@ -21,7 +21,7 @@ const Signup = () => {
   const [telno, setTellno] = useState("Contact No.");
   const [email, setEmail] = useState("Email");
 
-  const handleSubmit = (event) => {
+  /*const handleSubmit = (event) => {
     event.preventDefault();
     const Project = { username, password, cpass, address, telno, email };
     console.log(Project);
@@ -33,7 +33,28 @@ const Signup = () => {
       console.log("Sign-Up Successfull");
     });
   };
-
+*/
+const handleSubmit = (event) => {
+  console.log(Signup)
+  event.preventDefault();
+fetch("http://localhost:8080/User/saveuser", {
+        method: 'POST',
+        headers: new Headers({'Access-Control-Allow-Origin': 'https://localhost:8080',
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }),
+        body: JSON.stringify(Signup)
+        })
+        .then(response => response.json());
+       /* .then(data => {
+             let updatedComments = comments;
+             updatedComments.push(data)
+             setComments([...comments], updatedComments);
+        
+             setLoading(false);
+             setError(null);
+        })*/
+      };
   return (
     <div className="overall">
       <div className="container justify-content-center">
