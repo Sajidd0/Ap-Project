@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useEffect  } from "react";
 import "./MasterStyles.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
@@ -12,22 +12,56 @@ import { FaUser, FaKey } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Signin = () => {
-  const [email, setUsr] = useState("Username");
-  const [pass, setPass] = useState("Password");
+  const [email, setUsr] = useState("username");
+  const [pass, setPass] = useState("password");
 
-  const handleSubmit = (event) => {
+ /* const handleSubmit = (event) => {
     event.preventDefault();
-    const logins = { email, pass };
-    console.log(logins);
-    fetch("http://localhost:/8080", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(logins),
-    }).then(() => {
-      console.log("Sign-In Successfull");
-    });
-  };
-
+    
+    console.log("Hello world login here");
+    
+    
+  };*/
+/*  useEffect(() => {
+    fetch(`http://localhost:8080/User/userList`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            `This is an HTTP error: The status is ${response.status}`
+          );
+        }
+        return response.json();
+      })
+      .then((actualData) => console.log(actualData))
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, []);
+*/
+const handleSubmit = (event) => {
+const SignIn = { email, pass };
+console.log(SignIn);
+fetch("http://localhost:8080/User/checkforlogin", {
+        method: 'POST',
+        headers: new Headers({
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }),
+        body: JSON.stringify(Signin)
+        })
+        .then(response => response.json())
+       /* .then(data => {
+             let updatedComments = comments;
+             updatedComments.push(data)
+             setComments([...comments], updatedComments);
+        
+             setLoading(false);
+             setError(null);
+        })*/
+        ;
+      }
+    
+  
   return (
     <>
       <div className="overall ">
@@ -98,7 +132,7 @@ const Signin = () => {
                       type="submit"
                       value="Login"
                       className="btn btn-primary login_btn"
-                      onClick={handleSubmit}
+                      onClick={useEffect}
                     />
                   </div>
                 </form>
