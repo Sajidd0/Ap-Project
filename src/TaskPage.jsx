@@ -4,7 +4,7 @@ import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "./MasterStyles.css";
 import Navbar from "./Navbar";
-const TaskPage = () => {
+export default function TaskPage () {
   const [selectedFile, setSelectedFile] = useState();
   const [isFilePicked, setIsFilePicked] = useState(false);
   const changeHandler = (event) => {
@@ -136,7 +136,7 @@ const TaskPage = () => {
     </>
   );
 };
-export default TaskPage;
+
 const bold = {
   fontWeight: "bold",
 };

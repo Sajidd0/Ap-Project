@@ -12,7 +12,7 @@ import {
 import { FaUser, FaKey } from "react-icons/fa";
 import { Link, useNavigate}from "react-router-dom";
 
-function Signin() {
+export default function Signin() {
   const [email, setUsr] = useState("username");
   const [pass, setPass] = useState("password");
   const navigate = useNavigate();
@@ -21,10 +21,7 @@ const handleSubmit = (event) => {
 var data1;
 const obj = { email, pass };
 //console.log(SignIn);
-const signin1 ={
-  email:'faiqijaz43@gmail.com',
-  pass:'8080'
-}
+
 fetch("http://localhost:8080/User/checkforlogin", {
         method: 'post',
         headers: new Headers({
@@ -36,14 +33,25 @@ fetch("http://localhost:8080/User/checkforlogin", {
          .then(response => response.json())
         .then(data => {
           data1= data
-          //alert(data1)
-          if(data1==0)
+          //alert(data1+"Sign In page")
+          if(data1===null)
           {
             alert("User Not found")
           }
           else
           {
-            navigate('/employee', { state: email })
+           //alert("Use found") 
+           if(data1===102 || data1===101)
+           {
+            navigate('/managerfront', { state: {temp : {data1}} })
+           }
+           else
+          {
+            navigate('/employee', { state: {temp : {data1}} })
+          }
+          
+           
+            
           }
         })
 	.catch(error => {
@@ -144,5 +152,3 @@ fetch("http://localhost:8080/User/checkforlogin", {
     </>
   );
 };
-
-export default Signin;

@@ -13,49 +13,54 @@ import { MdEmail } from "react-icons/md";
 import { FaUser, FaKey, FaPhoneAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+function randomNumberInRange(min, max) {
+  // 👇️ get number between min (inclusive) and max (inclusive)
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 const Signup = () => {
-  const [username, setUsername] = useState("Username");
+  const [userName, setUsername] = useState("Username");
   const [password, setPassword] = useState("Password");
   const [cpass, setCpass] = useState("Confirm Password");
   const [address, setAddress] = useState("Address");
-  const [telno, setTellno] = useState("Contact No.");
+  const [phoneNumber, setTellno] = useState("Contact No.");
   const [email, setEmail] = useState("Email");
-
-  /*const handleSubmit = (event) => {
-    event.preventDefault();
-    const Project = { username, password, cpass, address, telno, email };
-    console.log(Project);
-    fetch("http://localhost:/8080", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Project),
-    }).then(() => {
-      console.log("Sign-Up Successfull");
+  const handleSubmit = (event) => {
+  var data1;
+  if(password!==cpass)
+  {
+    alert("Password donot match")
+  }
+  const personId=randomNumberInRange(1, 10000);
+  const user = { personId,personId ,userName, password,email, address,phoneNumber };
+  
+  console.log(user)
+  fetch("http://localhost:8080/User/saveuser", {
+    method: 'post',
+    headers: new Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    }),
+    body: JSON.stringify(user)
+    })
+     .then(response => response.json())
+    .then(data => {
+      data1= data
+      //alert(data1)
+      if(data1===1)
+      {
+        alert("User Created")
+      }
+      else
+      {
+        alert("User Creation Failed")
+      }
+    })
+.catch(error => {
+        alert('Something went wrong, please try again later.');
     });
-  };
-*/
-const handleSubmit = (event) => {
-  console.log(Signup)
-  event.preventDefault();
-fetch("http://localhost:8080/User/saveuser", {
-        method: 'POST',
-        headers: new Headers({'Access-Control-Allow-Origin': 'https://localhost:8080',
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        }),
-        body: JSON.stringify(Signup)
-        })
-        .then(response => response.json());
-       /* .then(data => {
-             let updatedComments = comments;
-             updatedComments.push(data)
-             setComments([...comments], updatedComments);
-        
-             setLoading(false);
-             setError(null);
-        })*/
-      };
-  return (
+   
+  }
+   return (
     <div className="overall">
       <div className="container justify-content-center">
         <div className="d-flex justify-content-center h-100">

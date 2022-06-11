@@ -9,9 +9,41 @@ import { web } from "../src/images/image1.jpg";
 import { Link } from "react-router-dom";
 import "./MasterStyles.css";
 import { GoPlus } from "react-icons/go";
+import Employeedata from "./EmployeeData";
 const CommonFront = (props) => {
+  /*task= [{
+    project_id: 1,
+    task_id :2,
+    task_title: "31",
+    start_date: "xyzcity",
+    due_date: "marketing",
+    task_description: "2015",
+    task_assignedTo: 1,
+    task_status:"Incom",
+    task_link:"emplty",
+    id:121,
+    task_assigned_to: 12
+
+  },
+  {
+    project_id: 1,
+    task_id :2,
+    task_title: "31",
+    start_date: "xyzcity",
+    due_date: "marketing",
+    task_description: "2015",
+    task_assignedTo: 1,
+    task_status:"Incom",
+    task_link:"emplty",
+    id:121,
+    task_assigned_to: 12
+
+  }
+]*/
+
   return (
     <>
+    
       <div>
         <Navbar />
       </div>
@@ -31,6 +63,7 @@ const CommonFront = (props) => {
         <div className="row">
           <div className="col-10 mx-auto">
             <div className="row gy-4">
+              
               {/* <Cards imgsrc="../src/images/image1.jpg" title="wow"/> */}
               {props.data1.map((val, ind) => {
                 return (
