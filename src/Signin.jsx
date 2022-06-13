@@ -1,67 +1,55 @@
 import React from "react";
-import { useState,useEffect  } from "react";
+import { useState, useEffect } from "react";
 import "./MasterStyles.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import Home from "./Home.jsx"
+import Home from "./Home.jsx";
 import {
   AiFillFacebook,
   AiFillGooglePlusSquare,
   AiFillTwitterSquare,
 } from "react-icons/ai";
 import { FaUser, FaKey } from "react-icons/fa";
-import { Link, useNavigate}from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Signin() {
   const [email, setUsr] = useState("username");
   const [pass, setPass] = useState("password");
   const navigate = useNavigate();
 
-const handleSubmit = (event) => {
-var data1;
-const obj = { email, pass };
-//console.log(SignIn);
+  const handleSubmit = (event) => {
+    var data1;
+    const obj = { email, pass };
+    //console.log(SignIn);
 
-fetch("http://localhost:8080/User/checkforlogin", {
-        method: 'post',
-        headers: new Headers({
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        }),
-        body: JSON.stringify(obj)
-        })
-         .then(response => response.json())
-        .then(data => {
-          data1= data
-          //alert(data1+"Sign In page")
-          if(data1===null)
-          {
-            alert("User Not found")
+    fetch("http://localhost:8080/User/checkforlogin", {
+      method: "post",
+      headers: new Headers({
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }),
+      body: JSON.stringify(obj),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        data1 = data;
+        //alert(data1+"Sign In page")
+        if (data1 === null) {
+          alert("User Not found");
+        } else {
+          //alert("Use found")
+          if (data1 === 102 || data1 === 101) {
+            navigate("/managerfront", { state: { temp: { data1 } } });
+          } else {
+            navigate("/employee", { state: { temp: { data1 } } });
           }
-          else
-          {
-           //alert("Use found") 
-           if(data1===102 || data1===101)
-           {
-            navigate('/managerfront', { state: {temp : {data1}} })
-           }
-           else
-          {
-            navigate('/employee', { state: {temp : {data1}} })
-          }
-          
-           
-            
-          }
-        })
-	.catch(error => {
-            alert('Something went wrong, please try again later.');
-        });
-       
-        
-      }
-    
-  
+        }
+      })
+      .catch((error) => {
+        alert("Something went wrong, please try again later.");
+      });
+  };
+
   return (
     <>
       <div className="overall ">
@@ -132,7 +120,6 @@ fetch("http://localhost:8080/User/checkforlogin", {
                       type="submit"
                       value="Login"
                       className="btn btn-primary login_btn"
-             
                     />
                   </div>
                 </form>
@@ -151,4 +138,4 @@ fetch("http://localhost:8080/User/checkforlogin", {
       </div>
     </>
   );
-};
+}

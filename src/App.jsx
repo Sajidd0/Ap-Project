@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import Signin from "./Signin.jsx";
@@ -13,7 +12,8 @@ import Employee from "./Employee.jsx";
 import Home from "./Home";
 import ProjectPage from "./ProjectPage";
 import TaskPage from "./TaskPage";
-import ReactDOM from "react-dom/client"
+import ReactDOM from "react-dom/client";
+
 const App = () => {
   return (
     <>

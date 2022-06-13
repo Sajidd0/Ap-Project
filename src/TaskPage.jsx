@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "./MasterStyles.css";
 import Navbar from "./Navbar";
-export default function TaskPage () {
+export default function TaskPage() {
   const [selectedFile, setSelectedFile] = useState();
   const [isFilePicked, setIsFilePicked] = useState(false);
+  const [Feedback, setFeedback] = useState("Feedback");
+
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
     selectedFile(true);
@@ -28,6 +29,15 @@ export default function TaskPage () {
         console.error("Error:", error);
       });
   };
+
+  const handleMeeting = (event) => {
+    //settype(event.target.target);
+  };
+
+  const handleFeedback = (event) => {
+    //settype(event.target.target);
+  };
+
   return (
     <>
       <div className="overall2 ">
@@ -98,12 +108,14 @@ export default function TaskPage () {
         <br></br>
         <br></br>
         <br></br>
+
         <div className="d-flex justify-content-center">
           <div className="row ms-3">
             <div className="col-12">
               <input type="file" name="file" onChange={changeHandler} />
               {selectedFile ? (
                 <div>
+                  <br />
                   <p>Filename: {selectedFile.name}</p>
                   <p>Filetype: {selectedFile.type}</p>
                   <p>Size in bytes: {selectedFile.size}</p>
@@ -132,10 +144,33 @@ export default function TaskPage () {
             </div>
           </div>
         </div>
+        <br />
+        <div className="d-flex justify-content-center">
+          <button class="btn btn-primary me-5" onClick={handleMeeting}>
+            Ask for Meeting
+          </button>
+        </div>
+        <br />
+        <div class="row justify-centre">
+          <label class="col-sm-3 col-form-label"></label>
+          <div class="col-sm-6">
+            <input
+              type="text"
+              class="form-control"
+              required
+              onChange={(e) => setFeedback(e.target.value)}
+            />
+          </div>
+          <div class="col-sm-3">
+            <button class="btn btn-primary me-5" onClick={handleFeedback}>
+              Feedback
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );
-};
+}
 
 const bold = {
   fontWeight: "bold",

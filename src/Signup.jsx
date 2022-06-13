@@ -25,42 +25,45 @@ const Signup = () => {
   const [phoneNumber, setTellno] = useState("Contact No.");
   const [email, setEmail] = useState("Email");
   const handleSubmit = (event) => {
-  var data1;
-  if(password!==cpass)
-  {
-    alert("Password donot match")
-  }
-  const personId=randomNumberInRange(1, 10000);
-  const user = { personId,personId ,userName, password,email, address,phoneNumber };
-  
-  console.log(user)
-  fetch("http://localhost:8080/User/saveuser", {
-    method: 'post',
-    headers: new Headers({
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    }),
-    body: JSON.stringify(user)
+    var data1;
+    if (password !== cpass) {
+      alert("Password donot match");
+    }
+    const personId = randomNumberInRange(1, 10000);
+    const user = {
+      personId,
+      personId,
+      userName,
+      password,
+      email,
+      address,
+      phoneNumber,
+    };
+
+    console.log(user);
+    fetch("http://localhost:8080/User/saveuser", {
+      method: "post",
+      headers: new Headers({
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }),
+      body: JSON.stringify(user),
     })
-     .then(response => response.json())
-    .then(data => {
-      data1= data
-      //alert(data1)
-      if(data1===1)
-      {
-        alert("User Created")
-      }
-      else
-      {
-        alert("User Creation Failed")
-      }
-    })
-.catch(error => {
-        alert('Something went wrong, please try again later.');
-    });
-   
-  }
-   return (
+      .then((response) => response.json())
+      .then((data) => {
+        data1 = data;
+        //alert(data1)
+        if (data1 === 1) {
+          alert("User Created");
+        } else {
+          alert("User Creation Failed");
+        }
+      })
+      .catch((error) => {
+        alert("Something went wrong, please try again later.");
+      });
+  };
+  return (
     <div className="overall">
       <div className="container justify-content-center">
         <div className="d-flex justify-content-center h-100">
