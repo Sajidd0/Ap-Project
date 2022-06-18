@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import {useLocation } from "react-router-dom";
 import "./MasterStyles.css";
 import Navbar from "./Navbar";
 export default function TaskPage() {
+  const state  = useLocation();
+  var PersonId= state.taskAssigned_to
+  var taskid= state.taskid
+  var ManagerId= state.managerid
   const [selectedFile, setSelectedFile] = useState();
   const [isFilePicked, setIsFilePicked] = useState(false);
   const [Feedback, setFeedback] = useState("Feedback");
+  function randomNumberInRange(min, max) {
+    // 👇️ get number between min (inclusive) and max (inclusive)
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
 
   const changeHandler = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -29,13 +38,70 @@ export default function TaskPage() {
         console.error("Error:", error);
       });
   };
-
+  const Req_count=1
   const handleMeeting = (event) => {
-    //settype(event.target.target);
+    const taskId = randomNumberInRange(1, 10000);
+    const meetingreq={
+      taskId,
+      ManagerId,
+      PersonId,
+      Req_count
+    }
+    var data1;
+    fetch("http://localhost:8080/Meetingrequest/savemeeting", {
+      method: "post",
+      headers: new Headers({
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }),
+      body: JSON.stringify(meetingreq),
+    })
+   
+      .then((response) => response.json())
+      .then((data) => {
+        data1 = data;
+        //alert(data1)
+        if (data1 === "Meeting Requested") {
+          alert("Meeting Requested");
+        } else {
+          alert("Meeting Already Requested");
+        }
+      })
+      .catch((error) => {
+        alert("Something went wrong, please try again later.");
+      });
   };
 
   const handleFeedback = (event) => {
-    //settype(event.target.target);
+    const message={
+      ManagerId,
+      PersonId,
+      Feedback,
+      taskid
+    }
+    var data1;
+    fetch("http://localhost:8080/Message/savemessage", {
+      method: "post",
+      headers: new Headers({
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      }),
+      body: JSON.stringify(message),
+    })
+   
+      .then((response) => response.json())
+      .then((data) => {
+        data1 = data;
+        //alert(data1)
+        if (data1 === "Message sent") {
+          alert("Message send");
+        } else {
+          alert("Message sending failed");
+        }
+      })
+      .catch((error) => {
+        alert("Something went wrong, please try again later.");
+      });
   };
 
   return (

@@ -29,6 +29,8 @@ const Signup = () => {
     if (password !== cpass) {
       alert("Password donot match");
     }
+    else
+  {
     const personId = randomNumberInRange(1, 10000);
     const user = {
       personId,
@@ -62,6 +64,8 @@ const Signup = () => {
       .catch((error) => {
         alert("Something went wrong, please try again later.");
       });
+  }
+    
   };
   return (
     <div className="overall">

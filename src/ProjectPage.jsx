@@ -2,26 +2,33 @@ import React from "react";
 import { useState } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import {useLocation} from "react-router-dom";
 import "./MasterStyles.css";
 import Navbar from "./Navbar";
 
 const ProjectPage = (props) => {
   const [feedback, setf] = useState([]);
   const [mreq, setreq] = useState([]);
-
+  const state  = useLocation();
+  var data= state.data.title
+  var manager_id= state.manager_id
   const fetchData = () => {
-    fetch("")
+    fetch("http://localhost:8080/Message/getMessageByManagerId")
       .then((response) => {
-        return response.json();
+        return response.json(manager_id);
       })
       .then((data) => {
         setf(data);
       });
   };
   const fetchMeet = () => {
-    fetch("")
+    const senddata={
+      data,
+      manager_id
+    }
+    fetch("http://localhost:8080/Meetingrequest/getMeetingByProject")
       .then((response) => {
-        return response.json();
+        return response.json(senddata);
       })
       .then((data) => {
         setreq(data);

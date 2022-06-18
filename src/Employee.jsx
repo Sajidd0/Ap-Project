@@ -42,6 +42,7 @@ export default function Employee () {
       
       <CommonFront    
         data1={EmployeeData}
+        data2= {taskAssigned_to}
         title="Welcome Employee"
         link="/taskpage"  
       />
