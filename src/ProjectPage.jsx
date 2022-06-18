@@ -1,11 +1,33 @@
 import React from "react";
-
+import { useState } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import "./MasterStyles.css";
 import Navbar from "./Navbar";
 
 const ProjectPage = (props) => {
+  const [feedback, setf] = useState([]);
+  const [mreq, setreq] = useState([]);
+
+  const fetchData = () => {
+    fetch("")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setf(data);
+      });
+  };
+  const fetchMeet = () => {
+    fetch("")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        setreq(data);
+      });
+  };
+
   return (
     <>
       <div className="specialcase ">
@@ -162,6 +184,26 @@ const ProjectPage = (props) => {
           <div className="col-12 ms-4">
             <h4 style={bold}>Project Deadline</h4>
             <p>12 May 2022</p>
+          </div>
+        </div>
+        <div className="row ">
+          <div className="col-sm-4 ms-4">
+            <h4 style={bold}>Project Feedbacks</h4>
+            <ol>
+              {feedback.map((feedback) => (
+                <li key={mreq.id}>{mreq.name} Requested for a Meet.</li>
+              ))}
+            </ol>
+          </div>
+          <div className="col-sm-4">
+            <h4 style={bold}>Project Meetings</h4>
+            <il>
+              {feedback.map((feedback) => (
+                <li key={feedback.id}>
+                  {feedback.name} {feedback.message}
+                </li>
+              ))}
+            </il>
           </div>
         </div>
       </div>
